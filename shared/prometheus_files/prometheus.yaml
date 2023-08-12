@@ -1,0 +1,42 @@
+global:
+  scrape_interval: 20s
+
+scrape_configs:
+
+  - job_name: 'prometheus-server'
+    static_configs:
+    - targets: ['prom:9090']
+    metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: 'go_.*'
+        action: drop
+
+  - job_name: 'prometheus-host'
+    static_configs:
+    - targets: ['prom:9100']
+      labels:
+        role: monitoring
+    metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: 'go_.*'
+        action: drop
+
+  - job_name: 'docker-host'
+    static_configs:
+    - targets: ['docker:9100']
+      labels:
+        role: containers
+    metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: 'go_.*'
+        action: drop
+
+  - job_name: 'applications'
+    file_sd_configs:
+    - files:
+      - applications.json
+    relabel_configs:
+      - source_labels: [role]
+        regex: cont
+        target_label: role
+        replacement: container

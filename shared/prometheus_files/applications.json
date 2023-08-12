@@ -1,0 +1,14 @@
+[
+  {
+    "targets": [ "docker:8081" ],
+      "labels": {
+        "role": "container"
+      }
+  },
+  {
+    "targets": [ "docker:8082" ],
+      "labels": {
+        "role": "cont"
+      }
+  }
+]
