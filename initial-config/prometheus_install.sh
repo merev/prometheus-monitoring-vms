@@ -12,4 +12,4 @@ cp /shared/prometheus_files/prometheus.yaml ./prometheus-2.46.0.linux-amd64/
 cp /shared/prometheus_files/applications.json ./prometheus-2.46.0.linux-amd64/
 
 echo "* Start Prometheus"
-./prometheus-2.46.0.linux-amd64/prometheus --config.file prometheus.yaml --web.enable-lifecycle 2>> /tmp/prometheus.log &
+./prometheus-2.46.0.linux-amd64/prometheus --config.file prometheus-2.46.0.linux-amd64/prometheus.yaml --web.enable-lifecycle 2>> /tmp/prometheus.log &
