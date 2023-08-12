@@ -17,6 +17,9 @@ Vagrant.configure("2") do |config|
     vm1.vm.network "private_network", ip: "192.168.99.100"
     vm1.vm.synced_folder "shared/", "/shared"
     vm1.vm.provision "shell", path: "initial-config/add_hosts.sh"
+    vm1.vm.provision "shell", path: "initial-config/prometheus_install.sh"
+    vm1.vm.provision "shell", path: "initial-config/node_exporter_install.sh"
+    vm1.vm.provision "shell", path: "initial-config/grafana_install.sh"
   end
 
   # Docker Host (Debian 11)
@@ -26,6 +29,9 @@ Vagrant.configure("2") do |config|
     vm2.vm.network "private_network", ip: "192.168.99.101"
     vm2.vm.synced_folder "shared/", "/shared"
     vm2.vm.provision "shell", path: "initial-config/add_hosts.sh"
+    vm2.vm.provision "shell", path: "initial-config/docker_install.sh"
+    vm2.vm.provision "shell", path: "initial-config/node_exporter_install.sh"
+    vm2.vm.provision "shell", path: "initial-config/test_containers_run.sh"
   end
 
 end
