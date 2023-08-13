@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
     vm1.vm.provision "shell", path: "initial-config/prometheus_install.sh"
     vm1.vm.provision "shell", path: "initial-config/node_exporter_install.sh"
     vm1.vm.provision "shell", path: "initial-config/grafana_install.sh"
+    vm1.vm.provision "shell", path: "initial-config/grafana_setup.sh"
   end
 
   # Docker Host (Debian 11)
