@@ -6,7 +6,7 @@ ADMIN_USERNAME="admin"
 ADMIN_PASSWORD="admin"
 
 echo "* Dashboard JSON file path set"
-DASHBOARD_JSON_FILE="/shared/grafana-setup/infra_monitoring_dashboard.json"
+DASHBOARD_JSON_FILE="/shared/grafana_setup/infra_monitoring_dashboard.json"
 
 echo " Log in and get session cookie"
 SESSION_COOKIE=($curl -c cookies.txt -s -X POST \
