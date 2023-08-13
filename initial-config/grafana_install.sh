@@ -16,3 +16,6 @@ apt-get install -y grafana
 echo "* Start and enable the service"
 systemctl daemon-reload
 systemctl enable --now grafana-server
+
+echo "* SLEEP 15 SECONDS"
+sleep 15
