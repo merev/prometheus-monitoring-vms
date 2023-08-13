@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo "* Install required packages and download the Grafana repository signing key"
+apt-get update && apt-get install -y curl jq wget
 apt-get install -y apt-transport-https
-apt-get install -y curl jq
-apt-get install -y software-properties-common wget
+apt-get install -y software-properties-common
 wget -q -O /usr/share/keyrings/grafana.key https://apt.grafana.com/gpg.key
 
 echo "* Add a repository for stable releases"
