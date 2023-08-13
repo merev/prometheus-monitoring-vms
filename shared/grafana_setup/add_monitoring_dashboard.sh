@@ -9,7 +9,7 @@ echo "* Dashboard JSON file path set"
 DASHBOARD_JSON_FILE="/shared/grafana_setup/infra_monitoring_dashboard.json"
 
 echo " Log in and get session cookie"
-SESSION_COOKIE=($curl -c cookies.txt -s -X POST \
+SESSION_COOKIE=$(curl -c cookies.txt -s -X POST \
   -H "Content-Type: application/json" \
   -d "{\"user\":\"$ADMIN_USERNAME\",\"email\":\"\",\"password\":\"$ADMIN_PASSWORD\"}" \
   "$GRAFANA_URL/login")
