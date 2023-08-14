@@ -27,8 +27,7 @@
       "panels":[
          {
             "datasource":{
-               "type":"prometheus",
-               "uid":"b114bd93-5828-4575-bdfc-5819e6b9d52d"
+               "type":"prometheus"
             },
             "fieldConfig":{
                "defaults":{
@@ -114,8 +113,7 @@
             "targets":[
                {
                   "datasource":{
-                     "type":"prometheus",
-                     "uid":"b114bd93-5828-4575-bdfc-5819e6b9d52d"
+                     "type":"prometheus"
                   },
                   "editorMode":"code",
                   "expr":"100 - (avg by (instance,job) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
@@ -130,8 +128,7 @@
          },
          {
             "datasource":{
-               "type":"prometheus",
-               "uid":"b114bd93-5828-4575-bdfc-5819e6b9d52d"
+               "type":"prometheus"
             },
             "fieldConfig":{
                "defaults":{
@@ -214,8 +211,7 @@
             "targets":[
                {
                   "datasource":{
-                     "type":"prometheus",
-                     "uid":"b114bd93-5828-4575-bdfc-5819e6b9d52d"
+                     "type":"prometheus"
                   },
                   "editorMode":"code",
                   "expr":"node_memory_Active_bytes/node_memory_MemTotal_bytes*100",
@@ -230,8 +226,7 @@
          },
          {
             "datasource":{
-               "type":"prometheus",
-               "uid":"b114bd93-5828-4575-bdfc-5819e6b9d52d"
+               "type":"prometheus"
             },
             "fieldConfig":{
                "defaults":{
@@ -314,8 +309,7 @@
             "targets":[
                {
                   "datasource":{
-                     "type":"prometheus",
-                     "uid":"b114bd93-5828-4575-bdfc-5819e6b9d52d"
+                     "type":"prometheus"
                   },
                   "editorMode":"code",
                   "expr":"node_filesystem_avail_bytes{mountpoint=\"/\"} / node_filesystem_size_bytes{mountpoint=\"/\"} * 100",
