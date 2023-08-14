@@ -1,349 +1,427 @@
 {
-   "dashboard":{
-      "annotations":{
-         "list":[
-            {
-               "builtIn":1,
-               "datasource":{
-                  "type":"grafana",
-                  "uid":"-- Grafana --"
-               },
-               "enable":true,
-               "hide":true,
-               "iconColor":"rgba(0, 211, 255, 1)",
-               "name":"Annotations & Alerts",
-               "type":"dashboard"
-            }
-         ]
+  "dashboard":{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 2,
+              "pointSize": 1,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 3,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "editorMode": "code",
+            "expr": "100 - (avg by (instance,job) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+            "instant": false,
+            "legendFormat": "{{job}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "CPU Utilization %",
+        "type": "timeseries"
       },
-      "editable":true,
-      "fiscalYearStartMonth":0,
-      "graphTooltip":0,
-      "id":null,
-      "links":[
-         
-      ],
-      "liveNow":false,
-      "panels":[
-         {
-            "datasource":{
-               "type":"prometheus"
+      {
+        "datasource": {
+          "type": "prometheus"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
             },
-            "fieldConfig":{
-               "defaults":{
-                  "color":{
-                     "mode":"palette-classic"
-                  },
-                  "custom":{
-                     "axisCenteredZero":false,
-                     "axisColorMode":"text",
-                     "axisLabel":"",
-                     "axisPlacement":"auto",
-                     "barAlignment":0,
-                     "drawStyle":"line",
-                     "fillOpacity":0,
-                     "gradientMode":"none",
-                     "hideFrom":{
-                        "legend":false,
-                        "tooltip":false,
-                        "viz":false
-                     },
-                     "lineInterpolation":"linear",
-                     "lineStyle":{
-                        "fill":"solid"
-                     },
-                     "lineWidth":2,
-                     "pointSize":1,
-                     "scaleDistribution":{
-                        "type":"linear"
-                     },
-                     "showPoints":"auto",
-                     "spanNulls":false,
-                     "stacking":{
-                        "group":"A",
-                        "mode":"none"
-                     },
-                     "thresholdsStyle":{
-                        "mode":"off"
-                     }
-                  },
-                  "mappings":[
-                     
-                  ],
-                  "thresholds":{
-                     "mode":"absolute",
-                     "steps":[
-                        {
-                           "color":"green",
-                           "value":null
-                        },
-                        {
-                           "color":"red",
-                           "value":80
-                        }
-                     ]
-                  },
-                  "unit":"percent"
-               },
-               "overrides":[
-                  
-               ]
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 1,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
             },
-            "gridPos":{
-               "h":8,
-               "w":12,
-               "x":0,
-               "y":0
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
             },
-            "id":3,
-            "options":{
-               "legend":{
-                  "calcs":[
-                     
-                  ],
-                  "displayMode":"list",
-                  "placement":"bottom",
-                  "showLegend":true
-               },
-               "tooltip":{
-                  "mode":"single",
-                  "sort":"none"
-               }
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus"
             },
-            "targets":[
-               {
-                  "datasource":{
-                     "type":"prometheus"
-                  },
-                  "editorMode":"code",
-                  "expr":"100 - (avg by (instance,job) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
-                  "instant":false,
-                  "legendFormat":"{{job}}",
-                  "range":true,
-                  "refId":"A"
-               }
-            ],
-            "title":"CPU Utilization %",
-            "type":"timeseries"
-         },
-         {
-            "datasource":{
-               "type":"prometheus"
-            },
-            "fieldConfig":{
-               "defaults":{
-                  "color":{
-                     "mode":"palette-classic"
-                  },
-                  "custom":{
-                     "axisCenteredZero":false,
-                     "axisColorMode":"text",
-                     "axisLabel":"",
-                     "axisPlacement":"auto",
-                     "barAlignment":0,
-                     "drawStyle":"line",
-                     "fillOpacity":0,
-                     "gradientMode":"none",
-                     "hideFrom":{
-                        "legend":false,
-                        "tooltip":false,
-                        "viz":false
-                     },
-                     "lineInterpolation":"linear",
-                     "lineWidth":2,
-                     "pointSize":1,
-                     "scaleDistribution":{
-                        "type":"linear"
-                     },
-                     "showPoints":"auto",
-                     "spanNulls":false,
-                     "stacking":{
-                        "group":"A",
-                        "mode":"none"
-                     },
-                     "thresholdsStyle":{
-                        "mode":"off"
-                     }
-                  },
-                  "mappings":[
-                     
-                  ],
-                  "thresholds":{
-                     "mode":"absolute",
-                     "steps":[
-                        {
-                           "color":"green",
-                           "value":null
-                        },
-                        {
-                           "color":"red",
-                           "value":80
-                        }
-                     ]
-                  },
-                  "unit":"percent"
-               },
-               "overrides":[
-                  
-               ]
-            },
-            "gridPos":{
-               "h":8,
-               "w":12,
-               "x":12,
-               "y":0
-            },
-            "id":1,
-            "options":{
-               "legend":{
-                  "calcs":[
-                     
-                  ],
-                  "displayMode":"list",
-                  "placement":"bottom",
-                  "showLegend":true
-               },
-               "tooltip":{
-                  "mode":"single",
-                  "sort":"none"
-               }
-            },
-            "targets":[
-               {
-                  "datasource":{
-                     "type":"prometheus"
-                  },
-                  "editorMode":"code",
-                  "expr":"node_memory_Active_bytes/node_memory_MemTotal_bytes*100",
-                  "instant":false,
-                  "legendFormat":"{{job}}",
-                  "range":true,
-                  "refId":"A"
-               }
-            ],
-            "title":"Memory Usage %",
-            "type":"timeseries"
-         },
-         {
-            "datasource":{
-               "type":"prometheus"
-            },
-            "fieldConfig":{
-               "defaults":{
-                  "color":{
-                     "mode":"palette-classic"
-                  },
-                  "custom":{
-                     "axisCenteredZero":false,
-                     "axisColorMode":"text",
-                     "axisLabel":"",
-                     "axisPlacement":"auto",
-                     "barAlignment":0,
-                     "drawStyle":"line",
-                     "fillOpacity":0,
-                     "gradientMode":"none",
-                     "hideFrom":{
-                        "legend":false,
-                        "tooltip":false,
-                        "viz":false
-                     },
-                     "lineInterpolation":"linear",
-                     "lineWidth":2,
-                     "pointSize":1,
-                     "scaleDistribution":{
-                        "type":"linear"
-                     },
-                     "showPoints":"auto",
-                     "spanNulls":false,
-                     "stacking":{
-                        "group":"A",
-                        "mode":"none"
-                     },
-                     "thresholdsStyle":{
-                        "mode":"off"
-                     }
-                  },
-                  "mappings":[
-                     
-                  ],
-                  "thresholds":{
-                     "mode":"absolute",
-                     "steps":[
-                        {
-                           "color":"green",
-                           "value":null
-                        },
-                        {
-                           "color":"red",
-                           "value":80
-                        }
-                     ]
-                  },
-                  "unit":"percent"
-               },
-               "overrides":[
-                  
-               ]
-            },
-            "gridPos":{
-               "h":7,
-               "w":24,
-               "x":0,
-               "y":8
-            },
-            "id":2,
-            "options":{
-               "legend":{
-                  "calcs":[
-                     
-                  ],
-                  "displayMode":"list",
-                  "placement":"bottom",
-                  "showLegend":true
-               },
-               "tooltip":{
-                  "mode":"single",
-                  "sort":"none"
-               }
-            },
-            "targets":[
-               {
-                  "datasource":{
-                     "type":"prometheus"
-                  },
-                  "editorMode":"code",
-                  "expr":"node_filesystem_avail_bytes{mountpoint=\"/\"} / node_filesystem_size_bytes{mountpoint=\"/\"} * 100",
-                  "instant":false,
-                  "legendFormat":"{{job}}",
-                  "range":true,
-                  "refId":"A"
-               }
-            ],
-            "title":"Disk Usage %",
-            "type":"timeseries"
-         }
-      ],
-      "refresh":"",
-      "schemaVersion":38,
-      "style":"dark",
-      "tags":[
-         
-      ],
-      "templating":{
-         "list":[
-            
-         ]
+            "editorMode": "code",
+            "expr": "node_memory_Active_bytes/node_memory_MemTotal_bytes*100",
+            "instant": false,
+            "legendFormat": "{{job}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Memory Usage %",
+        "type": "timeseries"
       },
-      "time":{
-         "from":"now-15m",
-         "to":"now"
+      {
+        "datasource": {
+          "type": "prometheus"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 1,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "editorMode": "code",
+            "expr": "(node_filesystem_size_bytes{mountpoint=\"/\"} - node_filesystem_avail_bytes{mountpoint=\"/\"}) / node_filesystem_size_bytes{mountpoint=\"/\"} * 100",
+            "instant": false,
+            "legendFormat": "{{job}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Disk Usage %",
+        "type": "timeseries"
       },
-      "timepicker":{
-         
-      },
-      "timezone":"",
-      "title":"Infrastructure Monitoring",
-      "version":1,
-      "weekStart":""
-   }
+      {
+        "datasource": {
+          "type": "prometheus"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 1,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "editorMode": "code",
+            "expr": "node_filesystem_size_bytes{mountpoint=\"/\"} / 1024^3 - node_filesystem_avail_bytes{mountpoint=\"/\"} / 1024^3",
+            "instant": false,
+            "legendFormat": "used disk space ({{job}})",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "editorMode": "code",
+            "expr": "node_filesystem_size_bytes{mountpoint=\"/\"} / 1024^3",
+            "hide": false,
+            "instant": false,
+            "legendFormat": "disk size ({{job}})",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Disk Usage GBs",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Infrastructure Monitoring",
+    "version": 1,
+    "weekStart": ""
+  }
 }
